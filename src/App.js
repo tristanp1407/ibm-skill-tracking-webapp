@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Content } from "carbon-components-react";
+import { Route, Switch } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
+import MySkillsPage from "./content/MySkillsPage/MySkillsPage";
+import ManagerDashboard from "./content/ManagerView/ManagerDashboard/ManagerDashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Content>
+        <Switch>
+          <Route exact path="/" component={MySkillsPage} />
+          <Route path="/dashboard" component={ManagerDashboard} />
+        </Switch>
+      </Content>
+    </>
   );
 }
 
